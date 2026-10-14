@@ -1,0 +1,96 @@
+# loglens run: sut-delay-20261009-232814
+
+test         : sut-delay
+target       : http://loglens-sut.sut.svc.cluster.local:8080
+vus          : 800
+parallelism  : 2
+duration     : 3m
+env          : DELAY_MS=100
+started      : 2026-10-09 23:28:14 +0900
+finished     : 2026-10-09 23:31:32 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : 671767
+failed reqs  : 0   (expected_response=false)
+iterations   : 671767
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = sut-delay-20261009-232814
+
+## runner 1 (sut-delay-20261009-232814-1-45z8j) exit=0
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 336297  1866.043061/s
+    checks_succeeded...: 100.00% 336297 out of 336297
+    checks_failed......: 0.00%   0 out of 336297
+
+    ✓ status is 200
+
+    CUSTOM
+    sut_virtual_thread.............: 0.00%  0 out of 336297
+
+    HTTP
+    http_req_duration..............: avg=213.88ms min=100.22ms med=203.51ms max=4.56s p(95)=286.64ms p(99)=496.58ms
+      { expected_response:true }...: avg=213.88ms min=100.22ms med=203.51ms max=4.56s p(95)=286.64ms p(99)=496.58ms
+    http_req_failed................: 0.00%  0 out of 336297
+    http_reqs......................: 336297 1866.043061/s
+
+    EXECUTION
+    iteration_duration.............: avg=214.17ms min=100.3ms  med=203.6ms  max=4.56s p(95)=286.76ms p(99)=499.22ms
+    iterations.....................: 336297 1866.043061/s
+    vus............................: 270    min=0           max=400
+    vus_max........................: 400    min=400         max=400
+
+    NETWORK
+    data_received..................: 51 MB  282 kB/s
+    data_sent......................: 36 MB  198 kB/s
+
+
+
+
+## runner 2 (sut-delay-20261009-232814-2-zznc9) exit=0
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 335470  1862.178198/s
+    checks_succeeded...: 100.00% 335470 out of 335470
+    checks_failed......: 0.00%   0 out of 335470
+
+    ✓ status is 200
+
+    CUSTOM
+    sut_virtual_thread.............: 0.00%  0 out of 335470
+
+    HTTP
+    http_req_duration..............: avg=214.2ms min=100.27ms med=203.6ms  max=4.62s p(95)=286.28ms p(99)=496.82ms
+      { expected_response:true }...: avg=214.2ms min=100.27ms med=203.6ms  max=4.62s p(95)=286.28ms p(99)=496.82ms
+    http_req_failed................: 0.00%  0 out of 335470
+    http_reqs......................: 335470 1862.178198/s
+
+    EXECUTION
+    iteration_duration.............: avg=214.7ms min=100.33ms med=203.68ms max=4.62s p(95)=286.36ms p(99)=497.33ms
+    iterations.....................: 335470 1862.178198/s
+    vus............................: 400    min=0           max=400
+    vus_max........................: 400    min=400         max=400
+
+    NETWORK
+    data_received..................: 51 MB  281 kB/s
+    data_sent......................: 36 MB  197 kB/s
+
+
+
+

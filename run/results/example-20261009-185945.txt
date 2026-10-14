@@ -1,0 +1,89 @@
+# loglens run: example-20261009-185945
+
+test         : example
+target       : http://nginx.sut.svc.cluster.local
+vus          : 100
+parallelism  : 2
+duration     : 1m
+started      : 2026-10-09 18:59:45 +0900
+finished     : 2026-10-09 19:01:55 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : 6000
+failed reqs  : 0   (expected_response=false)
+iterations   : 6000
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = example-20261009-185945
+
+## runner 1 (example-20261009-185945-1-9fq8c) exit=0
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 3000    49.90492/s
+    checks_succeeded...: 100.00% 3000 out of 3000
+    checks_failed......: 0.00%   0 out of 3000
+
+    ✓ status is 200
+
+    HTTP
+    http_req_duration..............: avg=948.58µs min=145.04µs med=784.51µs max=11.19ms p(95)=1.96ms p(99)=7.04ms
+      { expected_response:true }...: avg=948.58µs min=145.04µs med=784.51µs max=11.19ms p(95)=1.96ms p(99)=7.04ms
+    http_req_failed................: 0.00%  0 out of 3000
+    http_reqs......................: 3000   49.90492/s
+
+    EXECUTION
+    iteration_duration.............: avg=1s       min=1s       med=1s       max=1.02s   p(95)=1s     p(99)=1.01s 
+    iterations.....................: 3000   49.90492/s
+    vus............................: 50     min=0         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 2.6 MB 43 kB/s
+    data_sent......................: 249 kB 4.1 kB/s
+
+
+
+
+## runner 2 (example-20261009-185945-2-8cwss) exit=0
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 3000    49.89858/s
+    checks_succeeded...: 100.00% 3000 out of 3000
+    checks_failed......: 0.00%   0 out of 3000
+
+    ✓ status is 200
+
+    HTTP
+    http_req_duration..............: avg=844.9µs min=135.24µs med=512.72µs max=22.2ms p(95)=2.08ms p(99)=9.05ms
+      { expected_response:true }...: avg=844.9µs min=135.24µs med=512.72µs max=22.2ms p(95)=2.08ms p(99)=9.05ms
+    http_req_failed................: 0.00%  0 out of 3000
+    http_reqs......................: 3000   49.89858/s
+
+    EXECUTION
+    iteration_duration.............: avg=1s      min=1s       med=1s       max=1.02s  p(95)=1s     p(99)=1.01s 
+    iterations.....................: 3000   49.89858/s
+    vus............................: 50     min=0         max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 2.6 MB 43 kB/s
+    data_sent......................: 249 kB 4.1 kB/s
+
+
+
+

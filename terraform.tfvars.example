@@ -1,0 +1,39 @@
+# cp terraform.tfvars.example terraform.tfvars 후 필요한 값만 수정한다.
+#
+# 여기에는 인프라 형상만 둔다.
+# 테스트 대상 URL / VU 수 / 스크립트 / parallelism 은 절대 여기 넣지 않는다
+# (그건 run/run.sh 의 인자다).
+
+region       = "ap-northeast-2"
+project_name = "loglens"
+
+tags = {
+  Owner = "loadtest-team"
+}
+
+vpc_cidr = "10.40.0.0/16"
+
+# EKS Kubernetes 버전.
+#   1.35 표준 지원 종료: 2027-03-27 (1.34 는 2026-12-02 종료)
+#   표준 지원이 끝나면 컨트롤 플레인 요금이 시간당 $0.10 -> $0.60 이 된다.
+#   다시 apply 하기 전에 확인:
+#   aws eks describe-cluster-versions --region ap-northeast-2 --query "clusterVersions[].[clusterVersion,versionStatus]" --output table
+kubernetes_version = "1.35"
+
+# ============================================================================
+# ⚠️  EKS API 접근 허용 CIDR — 내 공인 IP 로 좁혀라
+# ============================================================================
+# 기본값 0.0.0.0/0 은 EKS API 엔드포인트를 인터넷 전체에 연다 (인증은 여전히 필요).
+# 내 공인 IP 확인 (CMD):
+#   curl -s https://checkip.amazonaws.com
+# 나온 IP 뒤에 /32 를 붙여 넣는다:
+#   endpoint_public_access_cidrs = ["203.0.113.45/32"]
+# 공인 IP 가 바뀌면 terraform/kubectl 이 타임아웃난다. 이 값만 고쳐서 다시 apply 한다.
+endpoint_public_access_cidrs = ["0.0.0.0/0"]
+
+# SPOT 확보가 어려우면 같은 크기(2 vCPU / 4 GiB) 타입을 추가한다.
+#   예: ["c6i.large", "c6a.large", "c7i.large", "c5.large"]
+loadgen_instance_types = ["c6i.large"]
+loadgen_max_size       = 10
+
+platform_instance_types = ["m6i.large"]

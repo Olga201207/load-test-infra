@@ -1,0 +1,52 @@
+# loglens run: port-exhaustion-20261010-230729
+
+test         : port-exhaustion
+target       : http://nginx.sut.svc.cluster.local
+vus          : 20
+parallelism  : 1
+duration     : 3m
+port_range   : 10240-65535
+env          : (없음)
+started      : 2026-10-10 23:07:29 +0900
+finished     : 2026-10-10 23:11:39 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : 1372063
+failed reqs  : 0   (expected_response=false)
+iterations   : 1372063
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = port-exhaustion-20261010-230729
+
+## runner 1 (port-exhaustion-20261010-230729-1-gkdth) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 0       0/s
+    err_http_status................: 0       0/s
+    err_other......................: 0       0/s
+    err_refused....................: 0       0/s
+    err_reset......................: 0       0/s
+    err_timeout....................: 0       0/s
+
+    HTTP
+    http_req_duration..............: avg=1.66ms min=144.62µs med=1.5ms  max=49.38ms p(95)=3.07ms p(99)=4.93ms
+      { expected_response:true }...: avg=1.66ms min=144.62µs med=1.5ms  max=49.38ms p(95)=3.07ms p(99)=4.93ms
+    http_req_failed................: 0.00%   0 out of 1372063
+    http_reqs......................: 1372063 7622.481586/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.61ms min=357.05µs med=2.44ms max=61.4ms  p(95)=4.74ms p(99)=6.95ms
+    iterations.....................: 1372063 7622.481586/s
+    vus............................: 20      min=0            max=20
+    vus_max........................: 20      min=20           max=20
+
+    NETWORK
+    data_received..................: 1.2 GB  6.5 MB/s
+    data_sent......................: 140 MB  778 kB/s
+
+
+
+

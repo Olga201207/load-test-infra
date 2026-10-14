@@ -1,0 +1,6 @@
+# run/ 의 셸 스크립트와 템플릿은 LF 로 고정한다.
+# Windows 에서 CRLF 로 체크아웃되면 bash 가 "$'\r': command not found" 로 실패한다.
+*.sh    text eol=lf
+*.tpl   text eol=lf
+*.js    text eol=lf
+*.yaml  text eol=lf

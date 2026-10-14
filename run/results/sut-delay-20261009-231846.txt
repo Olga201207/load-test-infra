@@ -1,0 +1,58 @@
+# loglens run: sut-delay-20261009-231846
+
+test         : sut-delay
+target       : http://loglens-sut.sut.svc.cluster.local:8080
+vus          : 800
+parallelism  : 2
+duration     : 3m
+env          : DELAY_MS=100
+started      : 2026-10-09 23:18:46 +0900
+finished     : 2026-10-09 23:23:04 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : 639982
+failed reqs  : 0   (expected_response=false)
+iterations   : 639982
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = sut-delay-20261009-231846
+
+## runner 1 (sut-delay-20261009-231846-1-lkfg8) exit=0
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 479198  2660.870815/s
+    checks_succeeded...: 100.00% 479198 out of 479198
+    checks_failed......: 0.00%   0 out of 479198
+
+    ✓ status is 200
+
+    CUSTOM
+    sut_virtual_thread.............: 16.72% 80169 out of 479198
+
+    HTTP
+    http_req_duration..............: avg=149.86ms min=100.2ms  med=106.04ms max=2.3s p(95)=259.56ms p(99)=417.09ms
+      { expected_response:true }...: avg=149.86ms min=100.2ms  med=106.04ms max=2.3s p(95)=259.56ms p(99)=417.09ms
+    http_req_failed................: 0.00%  0 out of 479198
+    http_reqs......................: 479198 2660.870815/s
+
+    EXECUTION
+    iteration_duration.............: avg=150.27ms min=100.27ms med=106.13ms max=2.3s p(95)=259.69ms p(99)=418.89ms
+    iterations.....................: 479198 2660.870815/s
+    vus............................: 400    min=0               max=400
+    vus_max........................: 400    min=400             max=400
+
+    NETWORK
+    data_received..................: 72 MB  401 kB/s
+    data_sent......................: 51 MB  282 kB/s
+
+
+
+

@@ -1,0 +1,269 @@
+# loglens run: port-exhaustion-20261011-002054
+
+test         : port-exhaustion
+target       : http://nginx.sut.svc.cluster.local
+vus          : 160
+parallelism  : 8
+duration     : 3m
+port_range   : 60000-60099
+env          : (없음)
+started      : 2026-10-11 00:20:54 +0900
+finished     : 2026-10-11 00:25:39 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : 370766
+failed reqs  : 283886   (expected_response=false)
+iterations   : 370766
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = port-exhaustion-20261011-002054
+
+## runner 1 (port-exhaustion-20261011-002054-1-gzxmh) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35298  195.996992/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=516.2µs min=0s       med=0s       max=12.25ms  p(95)=2.21ms   p(99)=3.8ms   
+      { expected_response:true }...: avg=1.57ms  min=151.35µs med=1.41ms   max=12.25ms  p(95)=3.23ms   p(99)=4.84ms  
+    http_req_failed................: 67.19% 35298 out of 52528
+    http_reqs......................: 52528  291.668933/s
+
+    EXECUTION
+    iteration_duration.............: avg=68.55ms min=363.04µs med=100.57ms max=108.42ms p(95)=101.26ms p(99)=101.48ms
+    iterations.....................: 52528  291.668933/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 15 MB  81 kB/s
+    data_sent......................: 1.8 MB 9.8 kB/s
+
+
+
+
+## runner 2 (port-exhaustion-20261011-002054-2-bpkq8) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35471  196.973982/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=352.19µs min=0s       med=0s       max=27.14ms  p(95)=2.01ms   p(99)=3.68ms  
+      { expected_response:true }...: avg=1.64ms   min=153.06µs med=1.44ms   max=27.14ms  p(95)=3.56ms   p(99)=5.38ms  
+    http_req_failed................: 78.53% 35471 out of 45166
+    http_reqs......................: 45166  250.811278/s
+
+    EXECUTION
+    iteration_duration.............: avg=79.72ms  min=372.4µs  med=100.63ms max=111.28ms p(95)=101.48ms p(99)=102.29ms
+    iterations.....................: 45166  250.811278/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 8.2 MB 46 kB/s
+    data_sent......................: 989 kB 5.5 kB/s
+
+
+
+
+## runner 3 (port-exhaustion-20261011-002054-3-4gccx) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35560  197.449597/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=224.2µs min=0s       med=0s       max=8.97ms   p(95)=1.53ms   p(99)=2.82ms  
+      { expected_response:true }...: avg=1.21ms  min=137.24µs med=1ms      max=8.97ms   p(95)=2.94ms   p(99)=4.49ms  
+    http_req_failed................: 81.59% 35560 out of 43581
+    http_reqs......................: 43581  241.986807/s
+
+    EXECUTION
+    iteration_duration.............: avg=82.62ms min=348.48µs med=100.77ms max=104.88ms p(95)=101.13ms p(99)=101.27ms
+    iterations.....................: 43581  241.986807/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 6.8 MB 38 kB/s
+    data_sent......................: 818 kB 4.5 kB/s
+
+
+
+
+## runner 4 (port-exhaustion-20261011-002054-4-zrgn7) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35470  196.949797/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=272.22µs min=0s       med=0s       max=9.94ms   p(95)=1.49ms   p(99)=2.97ms  
+      { expected_response:true }...: avg=964.84µs min=138.06µs med=777.37µs max=9.94ms   p(95)=2.49ms   p(99)=4.56ms  
+    http_req_failed................: 71.78% 35470 out of 49411
+    http_reqs......................: 49411  274.35823/s
+
+    EXECUTION
+    iteration_duration.............: avg=72.86ms  min=348.22µs med=100.66ms max=105.56ms p(95)=101.33ms p(99)=101.84ms
+    iterations.....................: 49411  274.35823/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 12 MB  66 kB/s
+    data_sent......................: 1.4 MB 7.9 kB/s
+
+
+
+
+## runner 5 (port-exhaustion-20261011-002054-5-m4fnt) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35252  195.747454/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=485.04µs min=0s       med=0s       max=15.97ms  p(95)=2.09ms   p(99)=3.67ms  
+      { expected_response:true }...: avg=1.26ms   min=142.03µs med=1.05ms   max=15.97ms  p(95)=2.94ms   p(99)=4.69ms  
+    http_req_failed................: 61.61% 35252 out of 57212
+    http_reqs......................: 57212  317.687035/s
+
+    EXECUTION
+    iteration_duration.............: avg=62.93ms  min=340.37µs med=100.65ms max=110.11ms p(95)=101.13ms p(99)=101.26ms
+    iterations.....................: 57212  317.687035/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 19 MB  103 kB/s
+    data_sent......................: 2.2 MB 12 kB/s
+
+
+
+
+## runner 6 (port-exhaustion-20261011-002054-6-t9lt9) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35573  197.53197/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=191.36µs min=0s       med=0s       max=10.89ms  p(95)=1.32ms   p(99)=2.65ms  
+      { expected_response:true }...: avg=1.07ms   min=143.42µs med=801.25µs max=10.89ms  p(95)=2.76ms   p(99)=4.56ms  
+    http_req_failed................: 82.19% 35573 out of 43277
+    http_reqs......................: 43277  240.311221/s
+
+    EXECUTION
+    iteration_duration.............: avg=83.19ms  min=359.67µs med=100.78ms max=104.68ms p(95)=101.12ms p(99)=101.28ms
+    iterations.....................: 43277  240.311221/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 6.5 MB 36 kB/s
+    data_sent......................: 786 kB 4.4 kB/s
+
+
+
+
+## runner 7 (port-exhaustion-20261011-002054-7-zttkz) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35646  197.978955/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=118.77µs min=0s       med=0s       max=11.91ms  p(95)=1.02ms   p(99)=2.51ms  
+      { expected_response:true }...: avg=1.51ms   min=160.14µs med=1.27ms   max=11.91ms  p(95)=3.52ms   p(99)=5.19ms  
+    http_req_failed................: 92.15% 35646 out of 38682
+    http_reqs......................: 38682  214.84099/s
+
+    EXECUTION
+    iteration_duration.............: avg=93.07ms  min=387.29µs med=100.74ms max=105.64ms p(95)=101.29ms p(99)=101.65ms
+    iterations.....................: 38682  214.84099/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 2.6 MB 14 kB/s
+    data_sent......................: 310 kB 1.7 kB/s
+
+
+
+
+## runner 8 (port-exhaustion-20261011-002054-8-8kfkd) exit=0
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    err_addr_not_avail.............: 35616  197.769978/s
+    err_http_status................: 0      0/s
+    err_other......................: 0      0/s
+    err_refused....................: 0      0/s
+    err_reset......................: 0      0/s
+    err_timeout....................: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=159.07µs min=0s       med=0s       max=19.49ms  p(95)=1.18ms   p(99)=2.71ms  
+      { expected_response:true }...: avg=1.22ms   min=141.52µs med=901.74µs max=19.49ms  p(95)=3.23ms   p(99)=5.24ms  
+    http_req_failed................: 87.06% 35616 out of 40909
+    http_reqs......................: 40909  227.161165/s
+
+    EXECUTION
+    iteration_duration.............: avg=88ms     min=352.73µs med=100.76ms max=107.74ms p(95)=101.17ms p(99)=101.36ms
+    iterations.....................: 40909  227.161165/s
+    vus............................: 20     min=0              max=20
+    vus_max........................: 20     min=20             max=20
+
+    NETWORK
+    data_received..................: 4.5 MB 25 kB/s
+    data_sent......................: 540 kB 3.0 kB/s
+
+
+
+

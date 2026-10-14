@@ -1,0 +1,20 @@
+# loglens run: example-20261008-225246
+
+test         : example
+target       : http://nginx.sut.svc.cluster.local:8080
+vus          : 100
+parallelism  : 2
+duration     : 1m
+started      : 2026-10-08 22:52:46 +0900
+finished     : 2026-10-08 22:54:09 +0900
+stage        : finished
+
+## 전체 합계 (Prometheus, 모든 러너 합산)
+http_reqs    : n/a
+failed reqs  : 0   (expected_response=false)
+iterations   : n/a
+
+지연 시간 백분위(p95/p99)는 러너별로만 정확하다. 러너를 합친 값은 Grafana 에서 본다:
+  Dashboards > k6 > k6 Prometheus, testid = example-20261008-225246
+
+[23:00:50] 정리: TestRun example-20261008-225246, ConfigMap example-20261008-225246-script 삭제
